@@ -1,0 +1,17 @@
+{
+  "buildCommand": "npm run build",
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "headers": [
+    {
+      "source": "/api/stream",
+      "headers": [
+        { "key": "X-Accel-Buffering", "value": "no" },
+        { "key": "Cache-Control", "value": "no-cache, no-transform" }
+      ]
+    }
+  ]
+}
