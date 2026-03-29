@@ -3,7 +3,7 @@ import { dbGet, dbRun, parseJsonField } from '@/lib/db';
 import type { Memory } from '@/types';
 
 function parseMemory(row: Record<string, unknown>): Memory {
-  return { ...row, tags: parseJsonField(row.tags as string, []), pinned: Boolean(row.pinned) } as Memory;
+  return { ...row, tags: parseJsonField(row.tags as string, []), pinned: Boolean(row.pinned) } as unknown as Memory;
 }
 
 export async function GET(_: NextRequest, { params }: { params: { id: string } }) {

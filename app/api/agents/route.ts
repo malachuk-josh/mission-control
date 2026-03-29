@@ -11,7 +11,7 @@ function parseAgent(row: Record<string, unknown>): Agent {
     token_limit:      Number(row.token_limit),
     completed_tasks:  Number(row.completed_tasks),
     health_score:     Number(row.health_score),
-  } as Agent;
+  } as unknown as Agent;
 }
 
 export async function GET(req: NextRequest) {

@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import type { Task } from '@/types';
 
 function parseTask(row: Record<string, unknown>): Task {
-  return { ...row, tags: parseJsonField(row.tags as string, []) } as Task;
+  return { ...row, tags: parseJsonField(row.tags as string, []) } as unknown as Task;
 }
 
 export async function GET(_: NextRequest, { params }: { params: { id: string } }) {

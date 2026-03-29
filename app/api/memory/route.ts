@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import type { Memory } from '@/types';
 
 function parseMemory(row: Record<string, unknown>): Memory {
-  return { ...row, tags: parseJsonField(row.tags as string, []), pinned: Boolean(row.pinned) } as Memory;
+  return { ...row, tags: parseJsonField(row.tags as string, []), pinned: Boolean(row.pinned) } as unknown as Memory;
 }
 
 export async function GET(req: NextRequest) {
